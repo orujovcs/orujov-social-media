@@ -1,11 +1,11 @@
 import React from 'react'
-import Logo from "../../img/logo.png";
+import profilPic from "../../img/emptyProfilPic.webp";
 import "./header.css"
 const Header = () => {
   return (
     <div className='headerM'>
         <div className='profilImg'>
-            <img src={Logo} alt="profilPic" className='profilPicture'/>
+            <img src={profilPic} alt="profilPic" className='profilPicture'/>
         </div>
         <div className='navbar'>
             <div>

@@ -1,9 +1,27 @@
-import React from 'react'
+import React, { useState } from "react";
+import "./rightSide.css";
 
+import TrendCard from "../TrendCard/TrendCard";
+import ShareModal from "../ShareModal/ShareModal";
+import NavIcons from "../NavIcons/NavIcons";
 const RightSide = () => {
-  return (
-    <div>RightSide</div>
-  )
-}
+  const [modalOpened, setModalOpened] = useState(false);
 
-export default RightSide
+  return (
+    <div className="RightSide">
+      {/* Side Navbar */}
+
+      <NavIcons />
+      {/* TrendCard */}
+      <TrendCard />
+
+      {/* Share buttong */}
+      <button className="button r-button" onClick={() => setModalOpened(true)}>
+        Share
+      </button>
+      <ShareModal modalOpened={modalOpened} setModalOpened={setModalOpened} />
+    </div>
+  );
+};
+
+export default RightSide;

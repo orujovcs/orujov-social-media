@@ -32,7 +32,6 @@
   border-radius: 50%;
   background: #a6ddf0;
   filter: blur(72px);
-  z-index: -1;
 }
 
 .button {
