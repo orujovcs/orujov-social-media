@@ -2,6 +2,7 @@ import React from 'react'
 import Logo from "../../img/emptyProfilPic.webp"
 import CoverImg from "../../img/coverImg.webp"
 import "./profilCard.css"
+import { Link } from 'react-router-dom'
 const ProfilCard = () => {
   return (
     <div className="ProfileCard">
@@ -43,9 +44,9 @@ const ProfilCard = () => {
 
         <div className='lastChild'>
             <span>
-            {/* <Link to={`/profile/${user._id}`} style={{ textDecoration: "none", color: "inherit" }}> */}
+            <Link to={`/profile/`} style={{ textDecoration: "none", color: "inherit" }}>
                 My Profile
-            {/* </Link> */}
+            </Link>
             </span>
         </div>
       </div>

@@ -9,14 +9,14 @@ import { Link } from "react-router-dom";
 const NavIcons = () => {
   return (
     <div className="navIcons">
-      {/* <Link to="../home"> */}
+      <Link to="../home">
         <img src={Home} alt="" />
-      {/* </Link> */}
+      </Link>
       <div className="settIcon"><UilSetting /></div>
       <img src={Noti} alt="" />
-      {/* <Link to="../chat"> */}
+      <Link to="../chat">
         <img src={Comment} alt="" />
-      {/* </Link> */}
+      </Link>
     </div>
   );
 };

@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Post.css";
 import profilPic from "../../img/emptyProfilPic.webp"
 import Comment from "../../img/comment.png";
 import Share from "../../img/share.png";
 import Heart from "../../img/like.png";
-import NotLike from "../../img/notlike.png";
+// import NotLike from "../../img/notlike.png";
 // import { likePost } from "../../api/PostsRequests";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 
 const Post = ({ data }) => {
   // const { user } = useSelector((state) => state.authReducer.authData);

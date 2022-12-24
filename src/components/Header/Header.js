@@ -12,7 +12,7 @@ const Header = () => {
                 <span>Main</span>
             </div>
             <div>
-                <span>Profil</span>
+                <span>Profile</span>
             </div>
             <div>
                 <span>Notifications</span>
