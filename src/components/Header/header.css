@@ -1,0 +1,33 @@
+.headerM{
+    background: var(--purple);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color: white;
+    font-size: 18px;
+    padding: 2px;
+}
+.profilImg{
+    width: 3rem;
+    cursor: pointer;
+}
+.profilPicture{
+    width: 100%;
+    border-radius: 40%;
+    box-shadow:  var(--profileShadow);
+}
+.navbar{
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.logOut{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.navbar div{
+    cursor: pointer;
+}
