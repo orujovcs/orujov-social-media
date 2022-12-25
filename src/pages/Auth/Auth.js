@@ -1,12 +1,39 @@
 import React, { useState } from "react";
 import "./Auth.css";
 import Logo from "../../img/logo.png";
-import { ReactReduxContext } from "react-redux";
+import { connect } from "react-redux";
+import store from "../../redux/store";
+import {addUser} from "../../redux/action";
+import {loginAcc} from "../../redux/action";
 
 const Auth = () => {
   let [auth, setAuth] = useState(false);
-  return (
-    <div className="Auth">
+  let [incorrect, setIncorr] = useState("");
+  const login = () =>{
+    console.log("fun");
+    store.dispatch(loginAcc(document.querySelectorAll(".infoInputL")));
+  }
+  const autorithation=()=>{
+    if(document.querySelectorAll(".infoInputR")[3].value !== document.querySelectorAll(".infoInputR")[4].value){
+      setIncorr(incorrect = "Passwords do not match.")
+    }
+    else if(
+      document.querySelectorAll(".infoInputR")[0].value !== "" &&
+      document.querySelectorAll(".infoInputR")[1].value !== "" &&
+      document.querySelectorAll(".infoInputR")[2].value !== "" &&
+      document.querySelectorAll(".infoInputR")[3].value !== "" 
+      ){
+        setIncorr(incorrect = "You have successfully registered.");
+        document.querySelector(".toLoginSpanR").style.color = "green";
+        console.log(document.querySelector(".toLoginSpanR"));
+        store.dispatch(addUser(document.querySelectorAll(".infoInputR")));
+      }
+    }
+    const handleSubmit = event => {
+      event.preventDefault();
+    };
+    return (
+      <div className="Auth">
       <div className="a-left">
         <img src={Logo} alt="" />
         <div className="Webname">
@@ -22,14 +49,14 @@ const Auth = () => {
     
     return (
       <div className="a-right">
-        <form className="infoForm authForm">
+        <form onSubmit={handleSubmit} className="infoForm authForm">
           <h3>Log In</h3>
   
           <div>
             <input
               type="text"
               placeholder="Username"
-              className="infoInput"
+              className="infoInputL"
               name="username"
               />
           </div>
@@ -37,7 +64,7 @@ const Auth = () => {
           <div>
             <input
               type="password"
-              className="infoInput"
+              className="infoInputL"
               placeholder="Password"
               name="password"
               />
@@ -47,7 +74,7 @@ const Auth = () => {
               <span className="toAuthSpan" onClick={() => setAuth(auth = true)}>
                 Don't have an account Sign up
               </span>
-            <button className="button infoButton">Login</button>
+            <button className="button infoButton" onClick={() => login()}>Login</button>
           </div>
         </form>
       </div>
@@ -56,20 +83,20 @@ const Auth = () => {
 function SignUp() {
   return (
     <div className="a-right">
-      <form className="infoForm authForm">
+      <form onSubmit={handleSubmit} className="infoForm authForm">
         <h3>Sign up</h3>
 
         <div>
           <input
             type="text"
             placeholder="First Name"
-            className="infoInput"
+            className="infoInputR"
             name="firstname"
           />
           <input
             type="text"
             placeholder="Last Name"
-            className="infoInput"
+            className="infoInputR"
             name="lastname"
           />
         </div>
@@ -77,7 +104,7 @@ function SignUp() {
         <div>
           <input
             type="text"
-            className="infoInput"
+            className="infoInputR"
             name="username"
             placeholder="Usernames"
           />
@@ -85,27 +112,35 @@ function SignUp() {
 
         <div>
           <input
-            type="text"
-            className="infoInput"
+            type="password"
+            className="infoInputR"
             name="password"
             placeholder="Password"
             />
           <input
-            type="text"
-            className="infoInput"
+            type="password"
+            className="infoInputR"
             name="confirmpass"
             placeholder="Confirm Password"
             />
         </div>
 
+            <span className="toLoginSpanR">{incorrect}</span>
         <div>
             <span className="toLoginSpan" onClick={() => setAuth(auth = false)}>Already have an account. Login!</span>
         </div>
-        <button className="button infoButton" type="submit">Signup</button>
+        <button className="button infoButton" type="submit" onClick={() => autorithation()}>Signup</button>
       </form>
     </div>
   );
 }
 
 };
-export default Auth;
+
+const mapStateToProps = (state) => {
+  return {
+    permission : state.permission
+  }
+};
+
+export default connect(mapStateToProps)(Auth);

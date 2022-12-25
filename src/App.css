@@ -79,7 +79,7 @@
   gap: 2rem;
 }
 
-.infoInput{
+.infoInputL, .infoInputR{
   border: none;
   outline: none;
   background-color: var(--inputColor);

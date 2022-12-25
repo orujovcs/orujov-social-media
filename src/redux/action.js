@@ -1,8 +1,18 @@
-export function ActionN(id){
+export function addUser(info){
     return {
-        type: '_',
+        type: 'ADD_USER',
         payload: {
-            id: id
-        }
-    }
+            info: info
+        },
+    };
+}
+
+export function loginAcc(info){
+    console.log("action");
+    return {
+        type : 'LOGIN_ACC',
+        payload : {
+            info : info
+        },
+    };
 }
