@@ -46,6 +46,8 @@
 
 .Webname>h6{
     font-size: 0.85rem;
+    display: flex;
+    justify-content: center;
 }
 
 
@@ -57,6 +59,8 @@
     background-color: var(--cardColor);
     border-radius: 1rem;
     padding: 1rem;
+    padding-top: 2rem;
+    box-shadow: var(--profileShadow);
 }
 
 .authForm>div{

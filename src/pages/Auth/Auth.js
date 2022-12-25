@@ -56,8 +56,8 @@ const Auth = () => {
         <img src={Logo} alt="" />
 
         <div className="Webname">
-          <h1>ZKC Media</h1>
-          <h6>Explore the ideas throughout the world</h6>
+          <h1>AlghorithmicsGram</h1>
+          <h6>Developed by Orujov</h6>
         </div>
       </div>
 
@@ -157,7 +157,7 @@ const Auth = () => {
               // disabled={loading}
             >
               {/* {loading ? "Loading..." : isSignUp ? "SignUp" : "Login"} */}
-            </button>
+            SignUp</button>
           </div>
         </form>
       </div>

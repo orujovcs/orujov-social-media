@@ -1,4 +1,5 @@
 import React/*, { useRef, useState }*/ from "react";
+import Header from "../../components/Header/Header";
 // import ChatBox from "../../components/ChatBox/ChatBox";
 // import Conversation from "../../components/Coversation/Conversation";
 import LogoSearch from "../../components/LogoSearch/LogoSearch";
@@ -65,7 +66,8 @@ const Chat = () => {
   //   return online ? true : false;
   // };
 
-  return (
+  return (<>
+      <Header/>
     <div className="Chat">
       {/* Left Side */}
       <div className="Left-side-chat">
@@ -104,6 +106,7 @@ const Chat = () => {
         /> */}
       </div>
     </div>
+    </>
   );
 };
 
