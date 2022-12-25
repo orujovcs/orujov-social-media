@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Auth.css";
 import Logo from "../../img/logo.png";
+import { ReactReduxContext } from "react-redux";
 
 const Auth = () => {
+  let [auth, setAuth] = useState(false);
   return (
     <div className="Auth">
       <div className="a-left">
@@ -13,11 +15,11 @@ const Auth = () => {
         </div>
       </div>
 
-      <LogIn/>
+      {auth ? <SignUp/> : <LogIn/>}
     </div>
   );
-};
-function LogIn() {
+  function LogIn() {
+    
     return (
       <div className="a-right">
         <form className="infoForm authForm">
@@ -29,7 +31,7 @@ function LogIn() {
               placeholder="Username"
               className="infoInput"
               name="username"
-            />
+              />
           </div>
   
           <div>
@@ -38,11 +40,11 @@ function LogIn() {
               className="infoInput"
               placeholder="Password"
               name="password"
-            />
+              />
           </div>
   
           <div>
-              <span style={{ fontSize: "12px" }}>
+              <span className="toAuthSpan" onClick={() => setAuth(auth = true)}>
                 Don't have an account Sign up
               </span>
             <button className="button infoButton">Login</button>
@@ -87,17 +89,17 @@ function SignUp() {
             className="infoInput"
             name="password"
             placeholder="Password"
-          />
+            />
           <input
             type="text"
             className="infoInput"
             name="confirmpass"
             placeholder="Confirm Password"
-          />
+            />
         </div>
 
         <div>
-            <span style={{fontSize: '12px'}}>Already have an account. Login!</span>
+            <span className="toLoginSpan" onClick={() => setAuth(auth = false)}>Already have an account. Login!</span>
         </div>
         <button className="button infoButton" type="submit">Signup</button>
       </form>
@@ -105,4 +107,5 @@ function SignUp() {
   );
 }
 
+};
 export default Auth;

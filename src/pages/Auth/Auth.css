@@ -13,7 +13,25 @@
   justify-content: center;
 }
 
+.toAuthSpan{
+  cursor: pointer;
+  font-size: 14px; 
+  font-weight: 600;
+}
+.toAuthSpan:hover{
+  color: blue;
+  text-decoration: underline;
+}
 
+.toLoginSpan{
+  cursor: pointer;
+  font-size: 16px; 
+  font-weight: 600;  
+}
+.toLoginSpan:hover{
+  color: blue;
+  text-decoration: underline;  
+}
 
 /* left side */
 .a-left{
@@ -49,11 +67,6 @@
     display: flex;
     justify-content: center;
 }
-
-
-
-/* right side */
-
 
 .authForm{
     background-color: var(--cardColor);
