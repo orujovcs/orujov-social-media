@@ -1,6 +1,7 @@
 import React from 'react'
 import profilPic from "../../img/emptyProfilPic.webp";
-import "./header.css"
+import "./header.css";
+import signOut from "../../img/sign-out.png";
 const Header = () => {
   return (
     <div className='headerM'>
@@ -22,8 +23,11 @@ const Header = () => {
             </div>
         </div>
         <div className='logOut'>
+                <img src={signOut} alt=''/>
             <div>
-                <span>LogOut</span>
+                <span>
+                    Sign out
+                </span>
             </div>
         </div>
     </div>

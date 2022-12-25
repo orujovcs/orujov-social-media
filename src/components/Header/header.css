@@ -25,10 +25,16 @@
     justify-content: space-between;
     align-items: center;
 }
-.logOut{
+.logOut {
     display: flex;
     align-items: center;
+    justify-content: center;
     cursor: pointer;
+}
+
+.logOut img{
+    width: 25px;
+    margin-right: 5px;
 }
 .navbar div{
     cursor: pointer;

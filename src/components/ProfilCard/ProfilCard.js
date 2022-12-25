@@ -13,8 +13,8 @@ const ProfileCard = () => {
       </div>
 
       <div className="ProfileName">
-        <span>Zendaya MJ</span>
-        <span>Senior UI/UX Designer</span>
+        <span>Orujov</span>
+        <span>FrontEnd developer</span>
       </div>
 
       <div className="followStatus">
@@ -24,7 +24,7 @@ const ProfileCard = () => {
             <span>6,890</span>
             <span>Followings</span>
           </div>
-          <div className="vl"></div>
+          {/* <div className="vl"></div> */}
           <div className="follow">
             <span>1</span>
             <span>Followers</span>
@@ -32,7 +32,7 @@ const ProfileCard = () => {
 
           {ProfilePage && (
             <>
-              <div className="vl"></div>
+              {/* <div className="vl"></div> */}
               <div className="follow">
                 <span>3</span>
                 <span>Posts</span>
@@ -40,7 +40,7 @@ const ProfileCard = () => {
             </>
           )}
         </div>
-        <hr />
+        <hr/>
       </div>
       {ProfilePage ? "" : <span>My Profile</span>}
     </div>
