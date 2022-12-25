@@ -1,58 +1,50 @@
-import React from 'react'
-import Logo from "../../img/emptyProfilPic.webp"
-import CoverImg from "../../img/coverImg.webp"
-import "./profilCard.css"
-import { Link } from 'react-router-dom'
-const ProfilCard = () => {
+import React from "react";
+import Cover from "../../img/cover.jpg";
+import Profile from "../../img/profileImg.jpg";
+import "./profilCard.css";
+
+const ProfileCard = () => {
+  const ProfilePage = true;
   return (
     <div className="ProfileCard">
       <div className="ProfileImages">
-        <img src={CoverImg} alt="CoverImage" />
-        <img src={Logo} alt="ProfileImage"/>
+        <img src={Cover} alt="" />
+        <img src={Profile} alt="" />
       </div>
+
       <div className="ProfileName">
-        <span>Raul Orucov</span>
-        <span>Write about yourself</span>
+        <span>Zendaya MJ</span>
+        <span>Senior UI/UX Designer</span>
       </div>
 
       <div className="followStatus">
         <hr />
         <div>
           <div className="follow">
-            <span>15</span>
-            <span>Followers</span>
+            <span>6,890</span>
+            <span>Followings</span>
           </div>
           <div className="vl"></div>
           <div className="follow">
-            <span>15</span>
-            <span>Following</span>
+            <span>1</span>
+            <span>Followers</span>
           </div>
-          {/* for profilepage */}
-          {/* {location === "profilePage" && (
+
+          {ProfilePage && (
             <>
               <div className="vl"></div>
               <div className="follow">
-                <span>{
-                posts.filter((post)=>post.userId === user._id).length
-                }</span>
+                <span>3</span>
                 <span>Posts</span>
-              </div>{" "}
+              </div>
             </>
-          )} */}
+          )}
         </div>
         <hr />
-
-        <div className='lastChild'>
-            <span>
-            <Link to={`/profile/`} style={{ textDecoration: "none", color: "inherit" }}>
-                My Profile
-            </Link>
-            </span>
-        </div>
       </div>
-      
+      {ProfilePage ? "" : <span>My Profile</span>}
     </div>
   );
-}
+};
 
-export default ProfilCard
+export default ProfileCard;
