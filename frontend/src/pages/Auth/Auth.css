@@ -1,5 +1,6 @@
 .Auth {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
@@ -42,6 +43,7 @@
 }
 
 .a-left > img {
+  margin-top: -46px;
   width: 4rem;
   height: 4rem;
 }
@@ -50,15 +52,11 @@
     font-size: 3rem;
     background-color: red;
   
-    /* Create the gradient. */
-    background-image: var(--buttonBg);
+    background-image: linear-gradient(106.23deg, #f44c75 0%, #602b7a 100%);/*var(--buttonBg);*/
     
-    /* Set the background size and repeat properties. */
+    /* background: linear-gradient(106.23deg, #f44c75 0%, #602b7a 100%); */
     background-size: 100%;
     background-repeat: repeat;
-  
-    /* Use the text as a mask for the background. */
-    /* This will show the gradient as a text color rather than element bg. */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; 
     -moz-background-clip: text;
@@ -68,7 +66,7 @@
 .Webname>h6{
     font-size: 0.85rem;
     display: flex;
-    justify-content: center;
+    justify-content: end;
 }
 
 .authForm{
@@ -83,4 +81,15 @@
     width: 100%;
     align-items: center;
     justify-content: center;
+}
+.link-to__list {
+  text-decoration: none;
+  color: white;
+}
+.link-to__list:hover {
+  text-decoration: none;
+  color: var(--pink);
+}
+.link-to__list1:hover {
+  color: var(--pink);
 }

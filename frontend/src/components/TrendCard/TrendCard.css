@@ -1,5 +1,5 @@
 .TrendCard{
-    margin-top: -17px;
+    /* margin-top: px; */
     display: flex;
     flex-direction: column;
     gap: 1rem;

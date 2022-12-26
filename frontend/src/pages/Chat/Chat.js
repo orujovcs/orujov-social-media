@@ -96,7 +96,7 @@ const Chat = () => {
 
       <div className="Right-side-chat">
         <div style={{ width: "20rem", alignSelf: "flex-end" }}>
-          <NavIcons />
+          {/* <NavIcons /> */}
         </div>
         {/* <ChatBox
           chat={currentChat}

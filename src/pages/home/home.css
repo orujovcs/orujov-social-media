@@ -1,9 +1,0 @@
-.homeSide{
-    margin-top: 15px;
-    padding-left: 3rem;
-    padding-right: 3rem;
-    position: relative;
-    display: grid;
-    grid-template-columns: 22rem auto 22rem;
-    gap: 1rem;      
-}

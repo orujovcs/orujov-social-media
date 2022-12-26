@@ -11,17 +11,17 @@ const RightSide = () => {
   const [modalOpened, setModalOpened] = useState(false);
   return (
     <div className="RightSide">
-      <div className="navIcons">
+      {/* <div className="navIcons">
         <img src={Home} alt="" />
         <UilSetting />
         <img src={Noti} alt="" />
         <img src={Comment} alt="" />
-      </div>
+      </div> */}
 
       <TrendCard />
 
       <button className="button r-button" onClick={() => setModalOpened(true)}>
-        Share
+        Add interests
       </button>
       <ShareModal modalOpened={modalOpened} setModalOpened={setModalOpened} />
     </div>

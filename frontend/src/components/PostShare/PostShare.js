@@ -6,9 +6,11 @@ import { UilPlayCircle } from "@iconscout/react-unicons";
 import { UilLocationPoint } from "@iconscout/react-unicons";
 import { UilSchedule } from "@iconscout/react-unicons";
 import { UilTimes } from "@iconscout/react-unicons";
+import ShareModal from "../ShareModal/ShareModal";
 
 
 const PostShare = () => {
+  const [modalOpened, setModalOpened] = useState(false);
   const [image, setImage] = useState(null);
   const imageRef = useRef();
 
@@ -44,7 +46,7 @@ const PostShare = () => {
             <UilSchedule />
             Shedule
           </div>
-          <button className="button ps-button">Share</button>
+          <button className="button ps-button" onClick={() => setModalOpened(true)}>Share</button>
           <div style={{ display: "none" }}>
             <input
               type="file"
@@ -52,6 +54,7 @@ const PostShare = () => {
               ref={imageRef}
               onChange={onImageChange}
             />
+            <ShareModal modalOpened={modalOpened} setModalOpened={setModalOpened} />
           </div>
         </div>
       {image && (

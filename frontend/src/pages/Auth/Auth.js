@@ -1,41 +1,63 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Auth.css";
 import Logo from "../../img/logo.png";
 import { connect } from "react-redux";
 import store from "../../redux/store";
 import {addUser} from "../../redux/action";
-import {loginAcc} from "../../redux/action";
+import {loginAcc, postAcc, postLogin, getDetails} from "../../redux/action";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const Auth = () => {
   let [auth, setAuth] = useState(false);
   let [incorrect, setIncorr] = useState("");
-  
   const permission = useSelector((state) => state.permission);
-
+  
+  const [test, setTest] = useState(null);
+  useEffect(() => {
+    if(permission === "Yes"){
+      window.location.assign('http://localhost:3000/home');
+    }
+  });
   const login = () =>{
     store.dispatch(loginAcc(document.querySelectorAll(".infoInputL")));
+    store.dispatch(postLogin(document.querySelectorAll(".infoInputL")));
     console.log(permission);
+    if(permission === "Yes"){
+      window.location.assign('http://localhost:3000/home');
+    }
   }
   const autorithation=()=>{
+    console.log(document.querySelector(".toLoginSpanR").textContent);
     if(document.querySelectorAll(".infoInputR")[3].value !== document.querySelectorAll(".infoInputR")[4].value){
-      setIncorr(incorrect = "Passwords do not match.")
+      setIncorr(incorrect = "Passwords do not match.");      
+      document.querySelector(".infoInputR").style.color = "red";
     }
-    else if(
+    if(
       document.querySelectorAll(".infoInputR")[0].value !== "" &&
       document.querySelectorAll(".infoInputR")[1].value !== "" &&
       document.querySelectorAll(".infoInputR")[2].value !== "" &&
       document.querySelectorAll(".infoInputR")[3].value !== "" 
       ){
         setIncorr(incorrect = "You have successfully registered.");
-        document.querySelector(".toLoginSpanR").style.color = "green";
         store.dispatch(addUser(document.querySelectorAll(".infoInputR")));
-      }
+        let newArr = document.querySelectorAll(".infoInputR");
+        console.log(newArr);
+        store.dispatch(postAcc(newArr));
+        document.querySelector(".toLoginSpanR").style.color = "green";
     }
-    const handleSubmit = event => {
-      event.preventDefault();
-    };
+    if(document.querySelector(".toLoginSpanR").textContent === "You have successfully registered."){
+      document.querySelector(".toLoginSpanR").style.color = "green";
+    }
+    if(document.querySelector(".toLoginSpanR").textContent === "Passwords do not match."){
+      document.querySelector(".toLoginSpanR").style.color = "red";
+    }
+  }
+  const handleSubmit = event => {
+    event.preventDefault();
+
+    console.log('form submitted ✅');
+  };
     return (
       <div className="Auth">
       <div className="a-left">
@@ -79,26 +101,11 @@ const Auth = () => {
               <span className="toAuthSpan" onClick={() => setAuth(auth = true)}>
                 Don't have an account Sign up
               </span>
-              {!permission ? (
-                    <button 
-                    className="button infoButton" 
-                    onClick={() => login()}>
-                      Login
-                    </button>
-                  ):(
-                      <button 
-                        className="button infoButton" 
-                      >
-                        <Link
-                          to={"/home"}
-                          className="link-to__list">
-                            Login
-                        </Link>
-                      </button>
-                  )
-
-              }
-            
+                <button 
+                className="button infoButton" 
+                onClick={() => login()}>
+                  Login
+                </button>            
           </div>
         </form>
       </div>
@@ -151,7 +158,7 @@ function SignUp() {
 
             <span className="toLoginSpanR">{incorrect}</span>
         <div>
-            <span className="toLoginSpan" onClick={() => setAuth(auth = false)}>Already have an account. Login!</span>
+            <span className="toLoginSpan" onClick={() => setAuth(auth = false)}>Already have an account? Login!</span>
         </div>
         <button className="button infoButton" type="submit" onClick={() => autorithation()}>Signup</button>
       </form>
