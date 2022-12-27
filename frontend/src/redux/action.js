@@ -25,6 +25,27 @@ export function follow(info){
     };
 }
 
+export function getM(data){
+    return{
+        type: 'GET-MESSAGES',
+        payload : {
+            messages: data
+        },
+    }
+}
+
+export function sendM(message){
+    return function(dispatch){
+        fetch(`/send-messages?count=${message}`)
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data);
+            dispatch(getM(data));
+        })
+        .catch((err) => console.log(err));
+    }    
+}
+
 export function getInfoAboutProfile(data){
     return {
         type: 'GET_INFO_ABOUT_PROFILE',

@@ -12,8 +12,8 @@ const initialState = {
     _job : "",
     trends : "",
     permission : false,
-    postP: []
-    
+    postP: [],
+    messages: []
 }
 
 function reducer(state = initialState,action){
@@ -93,11 +93,15 @@ function reducer(state = initialState,action){
         }
         
         const pos = [...state.postP, {...arr}];
-        // pos = {...arr};
         console.log(pos);
         return{
             ...state,
             postP : [...pos]
+        }
+    }
+    if(action.type === 'GET-MESSAGES'){
+        return{...state,
+            messages: action.payload.messages
         }
     }
     return state;
