@@ -20,8 +20,11 @@ const PostShare = () => {
       setImage({
         image: URL.createObjectURL(img),
       });
+      console.log(imageRef.current);
     }
   };
+  console.log(image);
+  
   return (
     <div className="PostShare">
       <img src={ProfileImage} alt="" />
@@ -53,20 +56,18 @@ const PostShare = () => {
               name="myImage"
               ref={imageRef}
               onChange={onImageChange}
+              className="pictureF"
             />
-            <ShareModal modalOpened={modalOpened} setModalOpened={setModalOpened} />
+            {/* <ShareModal modalOpened={modalOpened} setModalOpened={setModalOpened} /> */}
           </div>
         </div>
       {image && (
-
-        <div className="previewImage">
+        <div className="previewImage"> 
           <UilTimes onClick={()=>setImage(null)}/>
-          <img src={image.image} alt="" />
+          <img className="imageSrc" src={image.image} alt="" />
         </div>
 
       )}
-
-
       </div>
     </div>
   );

@@ -20,7 +20,7 @@ const Auth = () => {
     }
   });
   const login = () =>{
-    store.dispatch(loginAcc(document.querySelectorAll(".infoInputL")));
+    // store.dispatch(loginAcc(document.querySelectorAll(".infoInputL")));
     store.dispatch(postLogin(document.querySelectorAll(".infoInputL")));
     console.log(permission);
     if(permission === "Yes"){

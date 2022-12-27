@@ -34,9 +34,9 @@ export function getInfoAboutProfile(data){
     }
 }
 
-export function getDetails(info){
+export function getDetails(){
     return function(dispatch){
-        fetch('get-details')
+        fetch('/get-details')
         .then((res) => res.json())
         .then((data) => {
             dispatch(getInfoAboutProfile(data))

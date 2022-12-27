@@ -10,6 +10,8 @@
     display: flex;
     flex-direction: column;
     font-size: 13px;
+    /* background-color: var(--cardColor);
+    box-shadow: var(--profileShadow); */
 }
 
 .follower{

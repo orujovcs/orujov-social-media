@@ -97,3 +97,21 @@ app.get('/get-details', (req,res) => {
         );
     });
 });
+
+// app.get('/followings', (req,res) => {
+//     connection.query('SELECT * FROM inner_user ',
+//     (err,data) => {
+//         if(err) console.log(err);
+//         if(!err) console.log(data[0].username + " " + data[0].password);
+//         un = data[0].username;
+//         pw = data[0].password;
+//         connection.query(`SELECT * FROM users 
+//         WHERE username = "${data[0].username}" AND password = "${data[0].password}"`,
+//             (err,data) => {
+//                 if(err) console.log(err);
+//                 if(!err) console.log(data);
+//                 res.json(data);
+//             }
+//         );
+//     });
+// });

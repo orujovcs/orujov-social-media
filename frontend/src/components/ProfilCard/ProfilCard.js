@@ -1,20 +1,26 @@
-import { useSelector } from "react-redux";
+import { connect, useSelector } from "react-redux";
 import Cover from "../../img/cover.jpg";
 import Profile from "../../img/emptyProfilPic.webp";
 import "./profilCard.css";
+import {getDetails} from "../../redux/action";
+import store from "../../redux/store";
 import React, { useState, useEffect } from "react";
 
 
 const ProfileCard = () => {
-  // const [username, setInfo] = useState(useSelector((state) => state.user.userName));
-  const [job,setJob] = useState(useSelector((state) => state.user._job));
-  const [followings,setF] = useState(useSelector((state) => state.user.followings));
-  const [followers,setF1] = useState(useSelector((state) => state.user.followers));
-  const [posts,setP] = useState(useSelector((state) => state.user.posts));
-  let user = useSelector((state) => state.user.userName);
+  const user = useSelector((state) => state.userName)
+  const followers = useSelector((state) => state.followers)
+  const followings = useSelector((state) => state.followings)
+  const posts = useSelector((state) => state.posts)
+  const job = useSelector((state) => state._job)
+  
+  store.dispatch(getDetails());
+  useEffect(() => {
+    console.log(user);
+    console.log(followers);
+  });
   const ProfilePage = true;
-  return (
-    
+    return (
     <div className="ProfileCard">
       <div className="ProfileImages">
         <img src={Cover} alt="" />
@@ -24,7 +30,7 @@ const ProfileCard = () => {
       <div className="ProfileName">
         <span>@{user}</span>
         {
-          job? (<span>FrontEnd develope1r</span>):(<span>Your job</span>)
+          job? (<span>{job}</span>):(<span>Your job</span>)
         }
         
       </div>
@@ -60,3 +66,4 @@ const ProfileCard = () => {
 };
 
 export default ProfileCard;
+// export default connect(mapStateToProps, mapDispatchToProps) (ProfileCard);

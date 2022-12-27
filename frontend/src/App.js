@@ -5,15 +5,17 @@ import Profile from "./pages/Profile/Profile";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Chat from "./pages/Chat/Chat";
+import NavIcons from "./components/NavIcons/NavIcons";
 function App() {
   return (
     <div className="App">
-        <div className="blur" style={{top: '18%', right: '0'}}></div>
-        <div className="blur" style={{top: '36%', left: '-8rem'}}></div>
-        {/* <Home/> */}
-        {/* <Profile/>  */}
-        {/* <Auth/> */}
-        <Routes>
+      <div className="blur" style={{ top: '18%', right: '0' }}></div>
+      <div className="blur" style={{ top: '36%', left: '-8rem' }}></div>
+      {/* <Home/> */}
+      {/* <Profile/>  */}
+      {/* <Auth/> */}
+      {/* <NavIcons/> */}
+      <Routes>
         <Route
           path="/"
           element={<Navigate to="auth" />}
