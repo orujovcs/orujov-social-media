@@ -1,37 +1,23 @@
 const initialState = {
-    // login:{
-    //     username: "",
-    //     password: ""
-    // },
-    // user: {
-        firstName : "",
-        lastName : "",
-        userName : "",
-        password : "",
-        followings : 0,
-        followers : 0,
-        posts : 0,
-        _status : "",
-        location : "",
-        _workL : "",
-        _job : "",
-        trends : "",
-        // firstName : "Raul",
-        // lastName : "Orujov",
-        // userName : "orujovcs",
-        // password : "123456"
-    // },
-    permission : false
+    firstName : "",
+    lastName : "",
+    userName : "",
+    password : "",
+    followings : 0,
+    followers : 0,
+    posts : 0,
+    _status : "",
+    location : "",
+    _workL : "",
+    _job : "",
+    trends : "",
+    permission : false,
+    postP: []
+    
 }
 
 function reducer(state = initialState,action){
     if(action.type === 'ADD_USER'){
-        // state.user.firstName = action.payload.info[0].value;
-        // state.user.lastName = action.payload.info[1].value;
-        // state.user.userName = action.payload.info[2].value;
-        // state.user.password = action.payload.info[3].value;
-        // console.log(state)
-        // return state;
         return{...state,
             firstName: action.payload.info[0].value,
             lastName: action.payload.info[1].value,
@@ -45,7 +31,6 @@ function reducer(state = initialState,action){
             state.user.userName === action.payload.info[0].value &&
             state.user.password === action.payload.info[1].value
         ){
-            // state.permission = true;
             console.log(state.permission);
         }
         return {...state,
@@ -96,6 +81,23 @@ function reducer(state = initialState,action){
         let counter = state.followings + 1
         return{
             ...state.user, followings: counter
+        }
+    }
+    if(action.type === 'CREATE_POST'){
+        let arr = {
+            img : action.payload.img,
+            nameP: state.userName,
+            desc: action.payload.desc,
+            likes: action.payload.likes,
+            liked : action.payload.liked,
+        }
+        
+        const pos = [...state.postP, {...arr}];
+        // pos = {...arr};
+        console.log(pos);
+        return{
+            ...state,
+            postP : [...pos]
         }
     }
     return state;

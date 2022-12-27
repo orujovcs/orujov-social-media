@@ -1,17 +1,21 @@
 import React, { useState, useRef } from "react";
 import ProfileImage from "../../img/emptyProfilPic.webp";
 import "./postShare.css";
+import store from "../../redux/store";
 import { UilScenery } from "@iconscout/react-unicons";
 import { UilPlayCircle } from "@iconscout/react-unicons";
 import { UilLocationPoint } from "@iconscout/react-unicons";
 import { UilSchedule } from "@iconscout/react-unicons";
 import { UilTimes } from "@iconscout/react-unicons";
+import {createP} from "../../redux/action";
 import ShareModal from "../ShareModal/ShareModal";
+import { useDispatch } from "react-redux";
 
 
 const PostShare = () => {
   const [modalOpened, setModalOpened] = useState(false);
   const [image, setImage] = useState(null);
+  const dispatch = useDispatch();
   const imageRef = useRef();
 
   const onImageChange = (event) => {
@@ -23,13 +27,21 @@ const PostShare = () => {
       console.log(imageRef.current);
     }
   };
-  console.log(image);
-  
+  const createPost = ()=>{
+    let postDes = document.querySelector(".whatsHapp").value;
+    store.dispatch(createP(image.image,postDes));
+    console.log(image.image);
+    console.log(postDes);
+    setImage(null);
+    document.querySelector(".whatsHapp").value = "";
+    // document.querySelector(".previewImage").remove();
+  }
+
   return (
     <div className="PostShare">
       <img src={ProfileImage} alt="" />
       <div>
-        <input type="text" placeholder="What's happening" />
+        <input className="whatsHapp" type="text" placeholder="What's happening" />
         <div className="postOptions">
           <div className="option" style={{ color: "var(--photo)" }}
           onClick={()=>imageRef.current.click()}
@@ -49,7 +61,7 @@ const PostShare = () => {
             <UilSchedule />
             Shedule
           </div>
-          <button className="button ps-button" onClick={() => setModalOpened(true)}>Share</button>
+          <button className="button ps-button" onClick={() => createPost()}>Share</button>
           <div style={{ display: "none" }}>
             <input
               type="file"

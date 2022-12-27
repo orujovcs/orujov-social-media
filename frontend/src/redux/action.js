@@ -115,3 +115,15 @@ export function pastLogOut(info){
 
     }
 }
+
+export function createP(img,descr){
+    return {
+        type: 'CREATE_POST',
+        payload: {
+            img: img,
+            desc: descr,
+            likes: 2305,
+            liked: true
+        },
+    }
+}
