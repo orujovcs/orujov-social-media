@@ -120,3 +120,12 @@ app.get('/send-messages', (req,res) => {
         res.json(data);
     });
 });
+
+app.get('/get-messages', (req,res) => {
+    connection.query('SELECT * FROM messages ',
+    (err,data) => {
+        if(err) console.log(err);
+        if(!err) console.log(data);
+        res.json(data);
+    });
+});

@@ -6,7 +6,25 @@ export function addUser(info){
         },
     };
 }
-
+export function updateUser(info){
+    return {
+        type: 'UPDATE_USER',
+        payload: {
+            info: info
+        },
+    };
+}
+export function update(a,b,c,d,e,f){
+    return function(dispatch){
+        fetch(`/update?firstname=${a}&lastname=${b}&works=${c}&lives=${d}&country=${e}&relation=${f}`)
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data);
+            dispatch(updateUser(data));
+        })
+        .catch((err) => console.log(err));
+    }
+}
 export function loginAcc(info){
     return {
         type : 'LOGIN_ACC',
@@ -30,6 +48,26 @@ export function getM(data){
         type: 'GET-MESSAGES',
         payload : {
             messages: data
+        },
+    }
+}
+export function downM(){
+    return function(dispatch){
+        fetch(`/get-messages`)
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data);
+            dispatch(downloadM(data));
+        })
+        .catch((err) => console.log(err));
+    }
+}
+
+export function downloadM(data){
+    return{
+        type: 'DOWNLOAD_MESSAGES',
+        payload: {
+            messages : data
         },
     }
 }

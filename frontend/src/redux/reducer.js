@@ -13,7 +13,8 @@ const initialState = {
     trends : "",
     permission : false,
     postP: [],
-    messages: []
+    messages: [],
+    currentUser: []
 }
 
 function reducer(state = initialState,action){
@@ -102,6 +103,18 @@ function reducer(state = initialState,action){
     if(action.type === 'GET-MESSAGES'){
         return{...state,
             messages: action.payload.messages
+        }
+    }
+    if(action.type === 'DOWNLOAD_MESSAGES'){
+        return{
+            ...state,
+            messages: action.payload.messages
+        }
+    }
+    if(action.type === 'UPDATE_USER'){
+        return{
+            ...state,
+            currentUser: action.payload.info
         }
     }
     return state;

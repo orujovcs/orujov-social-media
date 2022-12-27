@@ -1,8 +1,23 @@
 import { Modal, useMantineTheme } from "@mantine/core";
+import store from "../../redux/store";
+import {update} from "../../redux/action";
+
 
 function ProfileModal({ modalOpened, setModalOpened }) {
   const theme = useMantineTheme();
-
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+  const updateInfo = () =>{
+    store.dispatch(update(
+      console.log(document.getElementById("1111").value),
+      console.log(document.getElementById("2222").value),
+      console.log(document.getElementById("3333").value),
+      console.log(document.getElementById("4444").value),
+      console.log(document.getElementById("5555").value),
+      console.log(document.getElementById("6666").value),
+    ));
+  }
   return (
     <Modal
       overlayColor={
@@ -12,22 +27,23 @@ function ProfileModal({ modalOpened, setModalOpened }) {
       }
       overlayOpacity={0.55}
       overlayBlur={3}
-      size="55%"
+      size="40%"
       opened={modalOpened}
       onClose={() => setModalOpened(false)}
     >
-      <form className="infoForm">
+      <form className="infoForm" onSubmit={handleSubmit}>
         <h3>Your info</h3>
 
         <div>
           <input
+          id="1111"
             type="text"
             className="infoInput"
             name="FirstName"
             placeholder="First Name"
           />
-
           <input
+          id="2222"
             type="text"
             className="infoInput"
             name="LastName"
@@ -37,6 +53,7 @@ function ProfileModal({ modalOpened, setModalOpened }) {
 
         <div>
           <input
+          id="3333"
             type="text"
             className="infoInput"
             name="worksAT"
@@ -46,6 +63,7 @@ function ProfileModal({ modalOpened, setModalOpened }) {
 
         <div>
           <input
+          id="4444"
             type="text"
             className="infoInput"
             name="livesIN"
@@ -53,6 +71,7 @@ function ProfileModal({ modalOpened, setModalOpened }) {
           />
 
           <input
+          id="5555"
             type="text"
             className="infoInput"
             name="Country"
@@ -62,6 +81,7 @@ function ProfileModal({ modalOpened, setModalOpened }) {
 
         <div>
           <input
+          id="6666"
             type="text"
             className="infoInput"
             placeholder="RelationShip Status"
@@ -69,14 +89,7 @@ function ProfileModal({ modalOpened, setModalOpened }) {
         </div>
 
 
-        <div>
-            Profile Image 
-            <input type="file" name='profileImg'/>
-            Cover Image
-            <input type="file" name="coverImg" />
-        </div>
-
-        <button className="button infoButton">Update</button>
+        <button className="button infoButton" onClick={() => updateInfo()}>Update</button>
       </form>
     </Modal>
   );

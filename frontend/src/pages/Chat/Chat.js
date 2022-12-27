@@ -5,24 +5,25 @@ import "./Chat.css";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import store from "../../redux/store";
-import {sendM} from "../../redux/action";
+import {sendM, downM} from "../../redux/action";
+import ProfileImage from "../../img/emptyProfilPic.webp";
 
 const Chat = () => {
-  // document.querySelector(".Chat")?.addEventListener('keypress', function (e) {
-  //   if (e.key === 'Enter') {
-  //         sendMessage(); 
-  //   }
+  // document.querySelector(".Chat")?.addEventListener('keypress',(e) => {
+  //   console.log(e.keyCode);
+    // if (e.key === 'Enter') {
+    //       sendMessage(); 
+    // }
   // });
+  
+  store.dispatch(downM());
+  const messages = useSelector((state) => state.messages);
   const sendMessage = () =>{
     let message = document.querySelector(".inputM").value;
     console.log(messages);
     store.dispatch(sendM(message));
+    document.querySelector(".Chat-list").scrollTo(0, document.querySelector(".Chat-list").scrollHeight);
   }
-  // useEffect(() => {
-  //   sendMessage();
-  // });
-  // sendMessage();
-  const messages = useSelector((state) => state.messages);
   return (
   
   <>
@@ -31,13 +32,17 @@ const Chat = () => {
         <div className="Chat-container">
           <h2>Common Chat</h2>
           <div className="Chat-list">
-            <h1>Hi</h1>
             {
               messages.map((message, id) =>{
                 return <div className="chat-message">
-                  <span>{message.username}</span>
-                  <span>{message.message}</span>
-                  <span>{message.data_time.split(" ")[1]}</span>
+                  <img className="profilpicChat" src={ProfileImage} alt=""/>
+                  <div className="messageInfo">
+                    <div className="messageInfoLeft">
+                        <div className="info1"><span>{message.username}</span></div>
+                        <div className="info2"><span>{message.message}</span></div>
+                    </div>
+                    <div className="info3"><span>{message.data_time.split(" ")[1]}</span></div>
+                  </div>
                 </div>
               })
             }
