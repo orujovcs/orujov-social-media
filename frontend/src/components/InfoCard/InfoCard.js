@@ -3,8 +3,14 @@ import "./InfoCard.css";
 import { UilPen } from "@iconscout/react-unicons";
 import ProfileModal from "../ProfileModal.js/ProfileModal";
 import { useSelector } from "react-redux";
+import store from "../../redux/store";
+import { pastLogOut } from "../../redux/action";
 
 const InfoCard = () => {
+  const signOutL=()=>{
+      store.dispatch(pastLogOut("true"));
+      window.location.assign('http://localhost:3000/auth');    
+    }
   const [modalOpened, setModalOpened] = useState(false);
   const profiInfo = useSelector((state) => state.currentUser);
   const username = useSelector((state) => state.userName);
@@ -67,7 +73,7 @@ const InfoCard = () => {
         }
       </div>
 
-      <button className="button logout-button">Logout</button>
+      <button className="button logout-button" onClick={() => signOutL()}>Logout</button>
     </div>
   );
 };

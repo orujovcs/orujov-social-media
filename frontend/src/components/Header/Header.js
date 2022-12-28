@@ -23,7 +23,7 @@ const Header = () => {
   return (
     <div className='headerM'>
         <div className='profilImg'>
-            <img src={profilPic} alt="profilPic" className='profilPicture'/>
+            <img src={profilPic} alt="profilPic" className='profilPicture' onClick={() => toMain()}/>
         </div>
         <div className='navbar'>
             <div>
