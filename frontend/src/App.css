@@ -34,6 +34,16 @@
   filter: blur(72px);
 }
 
+.errorH{
+  color: var(--pink);
+}
+.pageNotFound{
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
 .button {
   width: 90px;
   font-size: 15px;
