@@ -4,7 +4,7 @@ import PostShare from '../PostShare/PostShare'
 
 const PostSide = () => {
   return (
-    <div>
+    <div className='PostSidwe'>
         <PostShare/>
         <Posts/>
     </div>

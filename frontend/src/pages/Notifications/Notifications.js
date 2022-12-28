@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import store from "../../redux/store";
 import {getNewTags, getNews} from "../../redux/action";
 import "./notifications.css"
+import NavIcons from "../../components/NavIcons/NavIcons";
 const Notifications = () => {
     // const news = useSelector((state) => state.news);
     // const state = useSelector((state) => state.tags);
@@ -16,6 +17,9 @@ const Notifications = () => {
   return (
     <>
         <Header/>
+      <div className="mobNav">
+        <NavIcons/> 
+      </div>
         <div className="Notifications">
             <div className="Notifications-container">
             <h1>Notifications : 0</h1>

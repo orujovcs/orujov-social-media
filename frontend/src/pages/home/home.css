@@ -4,6 +4,37 @@
     padding-right: 3rem;
     position: relative;
     display: grid;
-    grid-template-columns: 22rem auto 22rem;
+    grid-template-columns: 22% auto 22%;
     gap: 1rem;      
 }
+
+@media screen and (max-width: 1040px) {
+    .RightSide{
+        display: none;
+    }
+    .PostSidwe{
+        margin-left: 25px;
+        width: 65vw;
+    }
+    .ProfilSide{
+        width: 22vw;
+    }
+
+   } 
+
+   @media screen and (max-width: 825px) {
+    .RightSide{
+        display: none;
+    }
+    .PostSidwe{
+        margin-left: 25px;
+        width: 65vw;
+    }
+    .ProfilSide{
+        width: 22vw;
+    }
+    .headerM{
+        display: none;
+    }
+
+   } 

@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import store from "../../redux/store";
 import {sendM, downM} from "../../redux/action";
 import ProfileImage from "../../img/emptyProfilPic.webp";
+import NavIcons from "../../components/NavIcons/NavIcons";
 
 const Chat = () => {
   // document.querySelector(".Chat")?.addEventListener('keypress',(e) => {
@@ -28,6 +29,9 @@ const Chat = () => {
   
   <>
       <Header/>
+      <div className="mobNav">
+        <NavIcons/> 
+      </div>
     <div className="Chat">
         <div className="Chat-container">
           <h2>Common Chat</h2>

@@ -7,6 +7,7 @@ import PostSide from '../../components/PostSide/PostSide'
 import ProfilSide from '../../components/ProfilSide/ProfilSide'
 import RightSide from '../../components/RightSide/RightSide'
 import "./home.css"
+import NavIcons from "../../components/NavIcons/NavIcons";
 
 const Home = () => {
   const profil = useSelector((state) => state.userName)
@@ -15,6 +16,9 @@ const Home = () => {
   });
   return (<>
     <Header/>
+      <div className="mobNav">
+        <NavIcons/> 
+      </div>
     <div className='homeSide'>
       <ProfilSide/>
       <PostSide/>

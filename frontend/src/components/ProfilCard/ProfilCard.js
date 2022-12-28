@@ -40,12 +40,12 @@ const ProfileCard = () => {
         <div>
           <div className="follow">
             {followings ? (<span>{followings}</span>):(<span>0</span>)}
-            <span>Followings</span>
+            <span className="hide">Followings</span>
           </div>
           {/* <div className="vl"></div> */}
           <div className="follow">
             {followers ? (<span>{followers}</span>):(<span>0</span>)}
-            <span>Followers</span>
+            <span className="hide">Followers</span>
           </div>
 
           {ProfilePage && (
@@ -53,7 +53,7 @@ const ProfileCard = () => {
               {/* <div className="vl"></div> */}
               <div className="follow">
             {posts ? (<span>{posts}</span>):(<span>0</span>)}
-                <span>Posts</span>
+                <span className="hide">Posts</span>
               </div>
             </>
           )}

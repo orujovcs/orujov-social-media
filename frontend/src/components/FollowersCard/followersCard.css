@@ -48,3 +48,12 @@
     padding-left: 20px;
     padding-right: 20px;
 }
+@media screen and (max-width: 1350px) {
+    .name{
+        display: none;
+    }
+    .follower{
+        display: flex;
+        justify-content: space-around;
+    }
+   } 
