@@ -117,7 +117,7 @@ function SignUp() {
       <form onSubmit={handleSubmit} className="infoForm authForm">
         <h3>Sign up</h3>
 
-        <div>
+        <div className="mobVers1">
           <input
             type="text"
             placeholder="First Name"
@@ -141,7 +141,7 @@ function SignUp() {
           />
         </div>
 
-        <div>
+        <div className="mobVers1">
           <input
             type="password"
             className="infoInputR"

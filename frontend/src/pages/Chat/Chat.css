@@ -106,11 +106,20 @@
   justify-content: center;
   align-items: center;
 }
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   .Chat {
      grid-template-columns: 16% auto;
    }
     .follower.conversation>div>.name{
      display: none;
     }
- } 
+ }  */
+
+ 
+
+ @media screen and (max-width: 475px) {
+  .info3{
+      display: none;
+  }
+
+ }

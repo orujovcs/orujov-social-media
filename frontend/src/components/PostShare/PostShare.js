@@ -49,15 +49,15 @@ const PostShare = () => {
             <UilScenery />
             Photo
           </div>
-          <div className="option" style={{ color: "var(--video)" }}>
+          <div className="option" id="videoMob" style={{ color: "var(--video)" }}>
             <UilPlayCircle />
             Video
           </div>{" "}
-          <div className="option" style={{ color: "var(--location)" }}>
+          <div className="option" id="locationMob" style={{ color: "var(--location)" }}>
             <UilLocationPoint />
             Location
           </div>{" "}
-          <div className="option" style={{ color: "var(--shedule)" }}>
+          <div className="option" id="sheduleMob" style={{ color: "var(--shedule)" }}>
             <UilSchedule />
             Shedule
           </div>

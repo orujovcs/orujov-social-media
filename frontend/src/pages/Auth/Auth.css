@@ -93,3 +93,22 @@
 .link-to__list1:hover {
   color: var(--pink);
 }
+
+@media screen and (max-width: 620px) {
+  .Webname{
+    display: none;
+  }
+
+}
+@media screen and (max-width: 470px) {
+  .a-right{
+    width: 90%;
+  }
+  .authForm{    
+    width: 90%;
+  }
+  .mobVers1 .infoInputR{
+    width: 90%;
+  }
+
+}
