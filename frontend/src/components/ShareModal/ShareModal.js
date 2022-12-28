@@ -1,9 +1,18 @@
 import React from "react";
 import { Modal, useMantineTheme } from "@mantine/core";
 import PostShare from "../PostShare/PostShare";
+import store from "../../redux/store";
+import {addT} from "../../redux/action";
+import { useSelector } from "react-redux";
 
 const ShareModal = ({modalOpened, setModalOpened}) => {
   const theme = useMantineTheme();
+  const addInterest = () =>{
+    console.log(document.getElementById("3232").value);
+    store.dispatch(addT(document.getElementById("3232").value))
+  }
+  const tags = useSelector((state) => state.tags);
+  console.log(tags);
   return (
     <Modal
       overlayColor={
@@ -13,11 +22,22 @@ const ShareModal = ({modalOpened, setModalOpened}) => {
       }
       overlayOpacity={0.55}
       overlayBlur={3}
-      size='55%'
+      size='30%'
       opened={modalOpened}
       onClose={() => setModalOpened(false)}
     >
-      <PostShare/>
+      <h2>Add your interests</h2>
+      {/* <PostShare/> */}
+      <div className="addingInterest">
+        <input
+        id="3232"
+        className="infoInput addTag"
+          type="text"
+        />
+        <button className="button addTagButton" onClick={() => addInterest()}>
+          Add Tag
+        </button>
+      </div>
     </Modal>
   );
 };

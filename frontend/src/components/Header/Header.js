@@ -15,7 +15,7 @@ const Header = () => {
         window.location.assign('http://localhost:3000/profile');        
     }
     const toNotifications = () => {
-        window.location.assign('http://localhost:3000/chat');        
+        window.location.assign('http://localhost:3000/notifications');        
     }
     const toMessages = () => {
         window.location.assign('http://localhost:3000/chat');        

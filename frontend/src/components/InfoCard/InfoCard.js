@@ -2,9 +2,15 @@ import React, { useState } from "react";
 import "./InfoCard.css";
 import { UilPen } from "@iconscout/react-unicons";
 import ProfileModal from "../ProfileModal.js/ProfileModal";
+import { useSelector } from "react-redux";
 
 const InfoCard = () => {
   const [modalOpened, setModalOpened] = useState(false);
+  const profiInfo = useSelector((state) => state.currentUser);
+  const username = useSelector((state) => state.userName);
+  console.log(profiInfo + "   " + username);
+  const arr = profiInfo.find((el) =>el.username = username)
+  console.log(arr);
   return (
     <div className="InfoCard">
       <div className="infoHead">
@@ -21,26 +27,44 @@ const InfoCard = () => {
           />
         </div>
       </div>
+      <div className="info">
+        <span>
+          <b>Name </b>
+        </span>{
+          arr?.firstname ? (<span>{arr.firstname}</span>):(<span>...</span>)
+        }
+      </div>
+      <div className="info">
+        <span>
+          <b>Surname</b>
+        </span>{
+          arr?.lastname ? (<span> {arr.lastname}</span>):(<span>...</span>)
+        }
+      </div>
 
       <div className="info">
         <span>
           <b>Status </b>
-        </span>
-        <span>...</span>
+        </span>{
+          arr?.relashion ? (<span>{arr.relashion}</span>):(<span>...</span>)
+        }
+        
       </div>
 
       <div className="info">
         <span>
           <b>Lives in </b>
-        </span>
-        <span>Baku</span>
+        </span>{
+          arr?.livs ? (<span>{arr.livs}</span>):(<span>...</span>)
+        }
       </div>
 
       <div className="info">
         <span>
           <b>Works at </b>
-        </span>
-        <span>WebCoder</span>
+        </span>{
+          arr?.works ? (<span>{arr.works}</span>):(<span>...</span>)
+        }
       </div>
 
       <button className="button logout-button">Logout</button>

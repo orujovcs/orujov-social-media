@@ -78,6 +78,11 @@
   align-items: center;
   gap: 2rem;
 }
+.addingInterest{
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
 
 .infoInput, .infoInputL, .infoInputR{
   border: none;

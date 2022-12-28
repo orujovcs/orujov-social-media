@@ -7,6 +7,7 @@ export function addUser(info){
     };
 }
 export function updateUser(info){
+    console.log(info);
     return {
         type: 'UPDATE_USER',
         payload: {
@@ -16,10 +17,9 @@ export function updateUser(info){
 }
 export function update(a,b,c,d,e,f){
     return function(dispatch){
-        fetch(`/update?firstname=${a}&lastname=${b}&works=${c}&lives=${d}&country=${e}&relation=${f}`)
+        fetch(`/updat?count=${a}_${b}_${c}_${d}_${e}_${f}`)
         .then((res) => res.json())
         .then((data) => {
-            console.log(data);
             dispatch(updateUser(data));
         })
         .catch((err) => console.log(err));
@@ -183,6 +183,71 @@ export function createP(img,descr){
             desc: descr,
             likes: 2305,
             liked: true
+        },
+    }
+}
+
+export function addT(tag){
+    return function(dispatch){
+        fetch(`addtag?count=${tag}`)
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data);
+            dispatch(addTag(data));
+        })
+        .catch((err) => console.log(err));
+    }
+}
+
+export function addTag(info){
+    return {
+        type: "ADD_TAG",
+        payload: {
+            tags: info
+        },
+    }
+}
+
+export function getNewTags(){
+    return function(dispatch){
+        fetch(`getalltags`)
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data);
+            dispatch(getAllTags(data));
+        })
+        .catch((err) => console.log(err));
+
+    }
+}
+export function getAllTags(info){
+    return {
+        type: "GET_ALL_TAGS",
+        payload: {
+            tags: info
+        },
+    }
+}
+
+export function getNews(query){
+    return function(dispatch){
+        const url = 'https://content.guardianapis.com/search';
+        const apiKey = '8b136398-5680-42d2-99a7-501599c71647';
+        fetch(`${url}?q=${query}&api-key=${apiKey}`)
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data);
+            dispatch(getAllNews(data));
+        })
+        .catch((err) => console.log(err));
+    }
+}
+
+export function getAllNews(info){
+    return {
+        type: "GET_ALL_NEWS",
+        payload: {
+            news: info
         },
     }
 }

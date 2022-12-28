@@ -129,3 +129,55 @@ app.get('/get-messages', (req,res) => {
         res.json(data);
     });
 });
+
+app.get('/updat', (req,res) => {
+    connection.query(`SELECT * FROM inner_user`,
+        (err,data) => {
+            if(err) console.log(err);
+            if(!err) console.log(data[0].username);
+            console.log(req.query.count.split("_"));
+            let newarr = req.query.count.split("_");
+            connection.query(`INSERT INTO curren_user (username,firstname,lastname,works,livs,country,relashion) VALUES("${data[0].username}", "${newarr[0]}", "${newarr[1]}", "${newarr[2]}", "${newarr[3]}", "${newarr[4]}", "${newarr[5]}")`,
+                (err,data) => {
+                    if(err) console.log(err);
+                    if(!err) console.log(data);
+                }
+            );
+        }
+    );
+    connection.query('SELECT * FROM curren_user ',
+    (err,data) => {
+        if(err) console.log(err);
+        if(!err) console.log(data);
+        res.json(data);
+    });
+});
+
+app.get('/addtag', (req,res) => {
+    connection.query(`SELECT * FROM inner_user`,
+        (err,data) => {
+            if(err) console.log(err);
+            if(!err) console.log(data[0].username);
+            connection.query(`INSERT INTO tags (username,tag) VALUES("${data[0].username}", "${req.query.count}")`,
+                (err,data) => {
+                    if(err) console.log(err);
+                    if(!err) console.log(data);
+                }
+            );
+        }
+    );
+    connection.query('SELECT * FROM tags ',
+    (err,data) => {
+        if(err) console.log(err);
+        if(!err) console.log(data);
+        res.json(data);
+    });
+});
+app.get('/getalltags', (req,res) => {
+    connection.query('SELECT * FROM tags ',
+    (err,data) => {
+        if(err) console.log(err);
+        if(!err) console.log(data);
+        res.json(data);
+    });
+});

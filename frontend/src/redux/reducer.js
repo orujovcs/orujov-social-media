@@ -14,7 +14,43 @@ const initialState = {
     permission : false,
     postP: [],
     messages: [],
-    currentUser: []
+    currentUser: [],
+    tags: [],
+    news: [],
+    news1:[
+        {
+            tag: "footbol",
+            news: "Big opportunity, little interest: New Zealand struggles to fill dream job protecting wildlife"
+        },
+        {
+            tag: "footbol",
+            news: "New Zealand inflation near record high as wisdom of interest rate rises questioned"
+        },
+        {
+            tag: "work",
+            news: "Bank of England left in the dark ahead of new interest rate decision"
+        },
+        {
+            tag: "footbol",
+            news: "Lionesses’ success inspires new interest in women’s game in England"
+        },
+        {
+            tag: "footbol",
+            news: "What’s in the public interest? Murdoch v Crikey trial could test new defamation defence"
+        },
+        {
+            tag: "footbol",
+            news: "The Fed needs to stop raising interest rates | Robert Reich"
+        },
+        {
+            tag: "working",
+            news: "Binance auditor withdraws from working with crypto company"
+        },
+        {
+            tag: "working",
+            news: "Railroad workers pressure Congress and Biden to address working conditions"
+        }
+    ]
 }
 
 function reducer(state = initialState,action){
@@ -112,9 +148,28 @@ function reducer(state = initialState,action){
         }
     }
     if(action.type === 'UPDATE_USER'){
+        console.log(action.payload.info);
         return{
             ...state,
             currentUser: action.payload.info
+        }
+    }
+    if(action.type === 'ADD_TAG'){
+        return{
+            ...state,
+            tags: action.payload.tags
+        }
+    }
+    if(action.type === 'GET_ALL_TAGS'){
+        return{
+            ...state,
+            tags: action.payload.tags
+        }
+    }
+    if(action.type === 'GET_ALL_NEWS'){
+        return{
+            ...state,
+            news: action.payload.news
         }
     }
     return state;

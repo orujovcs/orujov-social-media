@@ -1,0 +1,60 @@
+.Notifications {
+    display: flex;
+    width: 70vw;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 25px;
+    border-radius: 20px;
+    height: 90vh;
+  }
+  
+  .Notifications-container {
+    width: 100%;
+    display: flex;
+    box-shadow: var(--profileShadow);
+    flex-direction: column;
+    background: var(--cardColor);
+    border-radius: 1rem;
+    padding: 1rem;
+    height: auto;
+    min-height: 80vh;
+    height: 90%;
+    overflow: scroll;
+  }
+  
+  .Notifications-list {
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    max-height: 70%;
+    overflow:scroll;
+    overflow-x:hidden;
+  }
+
+  .notification{
+    padding-bottom: 5px;
+    background: var(--cardColor);
+    margin-top: 7px;
+    margin-bottom: 7px;
+    margin-left: 10%;
+    width: 80%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    box-shadow: var(--profileShadow);
+    border-radius: 20px;
+  }
+
+  .tagC{
+    color: #f44c75; 
+    margin-left: 15px;
+    margin-top: -5px;
+  }
+  .tagN{ 
+    margin-left: 15px;
+    margin-top: -15px;
+  }
+  
+  

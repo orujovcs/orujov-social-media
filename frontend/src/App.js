@@ -2,6 +2,7 @@ import "./App.css"
 import Auth from "./pages/Auth/Auth";
 import Home from "./pages/home/Home";
 import Profile from "./pages/Profile/Profile";
+import Notifications from "./pages/Notifications/Notifications";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Chat from "./pages/Chat/Chat";
@@ -39,6 +40,10 @@ function App() {
               <p>There's nothing here!</p>
             </main>
           }
+        />
+        <Route
+          path="/notifications"
+          element={<Notifications />}
         />
         <Route
           path="/chat"

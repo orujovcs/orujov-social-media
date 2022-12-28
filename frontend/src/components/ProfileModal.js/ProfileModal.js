@@ -10,12 +10,12 @@ function ProfileModal({ modalOpened, setModalOpened }) {
   };
   const updateInfo = () =>{
     store.dispatch(update(
-      console.log(document.getElementById("1111").value),
-      console.log(document.getElementById("2222").value),
-      console.log(document.getElementById("3333").value),
-      console.log(document.getElementById("4444").value),
-      console.log(document.getElementById("5555").value),
-      console.log(document.getElementById("6666").value),
+      document.getElementById("1111").value,
+      document.getElementById("2222").value,
+      document.getElementById("3333").value,
+      document.getElementById("4444").value,
+      document.getElementById("5555").value,
+      document.getElementById("6666").value,
     ));
   }
   return (
